@@ -19,6 +19,34 @@ The application can be packaged using:
 ```shell script
 ./mvnw clean package 
 
-java -jar target/quarkus-app/quarkus-run.jar -Dkafka.bootstrap.servers=<KAFKA SERVER> -Ds3.region=<YOUR REGION> -Ds3.accessKey=<YOUR ACCESS KEY> -Ds3.secretKey=<YOUR SECRET KEY>
+```
+
+
+```shell script
+docker build -f src/main/docker/Dockerfile.jvm -t quarkus/kafka-to-s3-jvm .
+```
+
+```shell script
+docker tag quarkus/kafka-to-s3-jvm:latest viniciusfcf/one-tap-soccer-kafka-to-s3:latest
+```
+
+```shell script
+docker push viniciusfcf/one-tap-soccer-kafka-to-s3:latest
+```
+
+
+or
+
+```shell script
+docker tag quarkus/kafka-to-s3-jvm:latest quay.io/vflorent/one-tap-soccer-kafka-to-s3:latest
+```
+
+```shell script
+docker push quay.io/vflorent/one-tap-soccer-kafka-to-s3:latest
+```
+
+```shell script
+
+java -jar target/quarkus-app/quarkus-run.jar -Ds3.region=<REGION> -Ds3.accessKey=<AK> -Ds3.secretKey=<SK> -Dkafka.bootstrap.servers=<K>
 
 ```

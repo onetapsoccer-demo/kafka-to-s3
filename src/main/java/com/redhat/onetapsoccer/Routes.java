@@ -21,7 +21,7 @@ public class Routes extends RouteBuilder {
                 .setHeader(AWS2S3Constants.DESTINATION_KEY, simple("camelDestinationKey"))
                 .log("Received : \"${body}\"")
                 //.to("seda:kafka-messages")
-                .toD("aws2-s3:one-tap-events?region={{s3.region}}&accessKey={{s3.accessKey}}&secretKey={{s3.secretKey}}")
+                .toD("aws2-s3:{{s3.bucketName}}?region={{s3.region}}&accessKey={{s3.accessKey}}&secretKey={{s3.secretKey}}")
                 ;
     }
 }
