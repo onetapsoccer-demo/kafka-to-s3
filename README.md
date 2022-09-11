@@ -49,4 +49,7 @@ docker push quay.io/vflorent/one-tap-soccer-kafka-to-s3:latest
 
 java -jar target/quarkus-app/quarkus-run.jar -Ds3.region=<REGION> -Ds3.accessKey=<AK> -Ds3.secretKey=<SK> -Dkafka.bootstrap.servers=<K>
 
+
 ```
+
+
